@@ -20,7 +20,7 @@ contract GeneralElection is EC {
    */
     constructor(string[] memory _parties) {
         parties = _parties;
-
+        voter = Voter({hasVoted: false, vote: 0});
         ballotBox = BallotBox({totalVotes: 0});
     }
 
@@ -33,12 +33,13 @@ contract GeneralElection is EC {
   */
     BallotBox private ballotBox;
 
+    bool hasVoted = false;
+
     /* 
     @notice for validation , will be replaced with the actual voter object 
     wherever the modifier [validateVoter] will be called
     */
-    Voter private voter =
-        Voter({voterId: msg.sender, hasVoted: false, vote: 0});
+    Voter private voter;
 
     /*
     @notice gets the total votecast
@@ -79,14 +80,16 @@ contract GeneralElection is EC {
      */
 
     function voteForParty(string memory _party) external override {
-     require(voter.vote == 0, "can vote only once");
+        require(voter.vote == 0, "can vote only once");
         if (validateParty(_party)) {
             // increase the vote of the party by 1
             votecast[_party] += 1;
             ballotBox.totalVotes += 1;
 
+            voter.vote = 1;
+
             emit Voted({
-                from: voter.voterId,
+                from: msg.sender,
                 message: "vote recorded successfuly"
             });
         }

@@ -6,7 +6,7 @@ import contract from "../../../contracts/contracts/general_election.sol/GeneralE
 export const Voting = () => {
   // using test abi from greeting smart contract
   const abi = contract.abi;
-  const address: string = "0x5FbDB2315678afecb367f032d93F642f64180aa3";
+  const address: string = "0xCf7Ed3AccA5a467e9e704C703E8D87F634fB0Fc9";
 
   const vote = async () => {
     await sendToChain({

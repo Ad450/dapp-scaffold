@@ -40,6 +40,16 @@ describe("GeneralElection", () => {
     expect(result).equals(0);
   });
 
+  it("should fail when voter has already voted", async () =>{
+    // act
+    // calling the method for the first time, first time voting
+    await generalElection.voteForParty("PPP");
+
+    // assert
+    // voting the second time should revert
+    expect(await generalElection.voteForParty("PPP")).throws("can vote only once")
+  });
+
   it("should increase the votes of a party by 1 when a someone votes", async () => {
     // act
     await generalElection.voteForParty(testParty);
@@ -50,4 +60,6 @@ describe("GeneralElection", () => {
     expect(result).equals(1);
     expect(partyResult).equals(1);
   });
+
+  
 });

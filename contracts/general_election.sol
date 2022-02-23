@@ -33,8 +33,6 @@ contract GeneralElection is EC {
   */
     BallotBox private ballotBox;
 
-    bool hasVoted = false;
-
     /* 
     @notice for validation , will be replaced with the actual voter object 
     wherever the modifier [validateVoter] will be called

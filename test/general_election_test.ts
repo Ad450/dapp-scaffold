@@ -1,7 +1,6 @@
 /* eslint-disable node/no-missing-import */
-import { expect } from "chai";
+import { expect, assert } from "chai";
 import { ethers } from "hardhat";
-
 import { GeneralElection } from "../typechain/GeneralElection";
 
 // const address = 0x5FbDB2315678afecb367f032d93F642f64180aa3
@@ -40,17 +39,9 @@ describe("GeneralElection", () => {
     expect(result).equals(0);
   });
 
-  it("should fail when voter has already voted", async () =>{
-    // act
-    // calling the method for the first time, first time voting
-    await generalElection.voteForParty("PPP");
+  
 
-    // assert
-    // voting the second time should revert
-    expect(await generalElection.voteForParty("PPP")).throws("can vote only once")
-  });
-
-  it("should increase the votes of a party by 1 when a someone votes", async () => {
+  it("should increase the votes of a party by 1 when someone votes", async () => {
     // act
     await generalElection.voteForParty(testParty);
     const result = await generalElection.getTotalVotes();
@@ -61,5 +52,17 @@ describe("GeneralElection", () => {
     expect(partyResult).equals(1);
   });
 
+    it("should fail when voter has already voted", async () =>{
+    // act
+    // calling the method for the first time or first time voting
+    await generalElection.voteForParty("PPP");
+
+    // assert
+   
+    assert.throws(async () => await generalElection.voteForParty("PPP"), "can vote only once")
+   
+  });
+  
   
 });
+

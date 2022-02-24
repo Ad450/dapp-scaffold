@@ -2,8 +2,8 @@
   "_format": "hh-sol-cache-2",
   "files": {
     "/home/emmanuel/StudioProjects/dapp-scaffold/contracts/electoral_commission.sol": {
-      "lastModificationDate": 1645549834698,
-      "contentHash": "1e0e474d3e533f4b6e897c51d9b72369",
+      "lastModificationDate": 1645687757386,
+      "contentHash": "94a48ea25d1f27bba5448988a2b5ac50",
       "sourceName": "contracts/electoral_commission.sol",
       "solcConfig": {
         "version": "0.8.4",
@@ -37,8 +37,8 @@
       ]
     },
     "/home/emmanuel/StudioProjects/dapp-scaffold/contracts/general_election.sol": {
-      "lastModificationDate": 1645557406202,
-      "contentHash": "357b4a7249239b771fb6cf4435dbf7b6",
+      "lastModificationDate": 1645693619040,
+      "contentHash": "c48fbd947938f879a380ee2a0329913c",
       "sourceName": "contracts/general_election.sol",
       "solcConfig": {
         "version": "0.8.4",

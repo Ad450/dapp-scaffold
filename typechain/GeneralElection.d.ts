@@ -21,6 +21,7 @@ import type { TypedEventFilter, TypedEvent, TypedListener } from "./common";
 
 interface GeneralElectionInterface extends ethers.utils.Interface {
   functions: {
+    "checkOvervoting()": FunctionFragment;
     "getPartyVotes(string)": FunctionFragment;
     "getTotalVotes()": FunctionFragment;
     "parties(uint256)": FunctionFragment;
@@ -29,6 +30,10 @@ interface GeneralElectionInterface extends ethers.utils.Interface {
     "votecast(string)": FunctionFragment;
   };
 
+  encodeFunctionData(
+    functionFragment: "checkOvervoting",
+    values?: undefined
+  ): string;
   encodeFunctionData(
     functionFragment: "getPartyVotes",
     values: [string]
@@ -51,6 +56,10 @@ interface GeneralElectionInterface extends ethers.utils.Interface {
   ): string;
   encodeFunctionData(functionFragment: "votecast", values: [string]): string;
 
+  decodeFunctionResult(
+    functionFragment: "checkOvervoting",
+    data: BytesLike
+  ): Result;
   decodeFunctionResult(
     functionFragment: "getPartyVotes",
     data: BytesLike
@@ -125,6 +134,8 @@ export class GeneralElection extends BaseContract {
   interface: GeneralElectionInterface;
 
   functions: {
+    checkOvervoting(overrides?: CallOverrides): Promise<[BigNumber]>;
+
     getPartyVotes(
       _party: string,
       overrides?: CallOverrides
@@ -147,6 +158,8 @@ export class GeneralElection extends BaseContract {
     votecast(arg0: string, overrides?: CallOverrides): Promise<[BigNumber]>;
   };
 
+  checkOvervoting(overrides?: CallOverrides): Promise<BigNumber>;
+
   getPartyVotes(_party: string, overrides?: CallOverrides): Promise<BigNumber>;
 
   getTotalVotes(overrides?: CallOverrides): Promise<BigNumber>;
@@ -163,6 +176,8 @@ export class GeneralElection extends BaseContract {
   votecast(arg0: string, overrides?: CallOverrides): Promise<BigNumber>;
 
   callStatic: {
+    checkOvervoting(overrides?: CallOverrides): Promise<BigNumber>;
+
     getPartyVotes(
       _party: string,
       overrides?: CallOverrides
@@ -192,6 +207,8 @@ export class GeneralElection extends BaseContract {
   };
 
   estimateGas: {
+    checkOvervoting(overrides?: CallOverrides): Promise<BigNumber>;
+
     getPartyVotes(
       _party: string,
       overrides?: CallOverrides
@@ -215,6 +232,8 @@ export class GeneralElection extends BaseContract {
   };
 
   populateTransaction: {
+    checkOvervoting(overrides?: CallOverrides): Promise<PopulatedTransaction>;
+
     getPartyVotes(
       _party: string,
       overrides?: CallOverrides

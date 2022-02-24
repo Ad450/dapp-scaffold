@@ -16,7 +16,7 @@ async function main() {
   // We get the contract to deploy
   const GeneralElection = await ethers.getContractFactory("GeneralElection");
   // eslint-disable-next-line prettier/prettier
-  const generalElection = await GeneralElection.deploy(["NPP", "NDC", "PPP"]);
+  const generalElection = await GeneralElection.deploy();
 
   await generalElection.deployed();
 

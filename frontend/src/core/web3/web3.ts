@@ -1,8 +1,5 @@
 import { Contract, ethers } from "ethers";
 
-type runMetamaskParam = {
-  run: (provider: ethers.providers.Web3Provider) => void;
-};
 
 export const metaMaskListeners = async () => {
   if (
@@ -24,6 +21,10 @@ export const metaMaskListeners = async () => {
 
     provider.on("chainChanged", () => window.location.reload());
   }
+};
+
+type runMetamaskParam = {
+  run: (provider: ethers.providers.Web3Provider) => void;
 };
 
 // request user to connect account on metaMask

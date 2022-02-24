@@ -6,6 +6,7 @@ import "@nomiclabs/hardhat-waffle";
 import "@typechain/hardhat";
 import "hardhat-gas-reporter";
 import "solidity-coverage";
+import "@nomiclabs/hardhat-web3";
 
 dotenv.config();
 
@@ -24,7 +25,7 @@ task("accounts", "Prints the list of accounts", async (taskArgs, hre) => {
 
 const config: HardhatUserConfig = {
   solidity: "0.8.4",
-  defaultNetwork: "ganache",
+  //defaultNetwork: "localhost",
   paths: {
     artifacts: "./frontend/src/contracts",
   },

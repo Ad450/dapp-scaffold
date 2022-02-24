@@ -14,7 +14,7 @@ describe("GeneralElection", () => {
     // const signers = await ethers.getSigners();
     const GeneralElection = await ethers.getContractFactory("GeneralElection");
 
-    generalElection = await GeneralElection.deploy(["NPP", "NDC", "PPP"]);
+    generalElection = await GeneralElection.deploy();
 
     (await generalElection).deployed();
   });
@@ -45,7 +45,7 @@ describe("GeneralElection", () => {
     // act
     await generalElection.voteForParty(testParty);
     const result = await generalElection.getTotalVotes();
-    const partyResult = await generalElection.getPartyVotes("PPP");
+    const partyResult = await generalElection.getPartyVotes("Party A");
 
     // assert
     expect(result).equals(1);
@@ -55,11 +55,11 @@ describe("GeneralElection", () => {
     it("should fail when voter has already voted", async () =>{
     // act
     // calling the method for the first time or first time voting
-    await generalElection.voteForParty("PPP");
+    await generalElection.voteForParty("Party A");
 
     // assert
    
-    assert.throws(async () => await generalElection.voteForParty("PPP"), "can vote only once")
+    assert.throws(async () => await generalElection.voteForParty("Party A"), "can vote only once")
    
   });
   

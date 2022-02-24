@@ -92,4 +92,8 @@ contract GeneralElection is EC {
             });
         }
     }
+
+    function checkOvervoting() public view returns (uint){
+        return voter.vote;
+    }
 }

@@ -8,7 +8,7 @@ import { GeneralElection } from "../typechain/GeneralElection";
 // eslint-disable-next-line prettier/prettier
 describe("GeneralElection", () => {
   let generalElection: GeneralElection;
-  const testParty = "PPP";
+  const testParty = "Party A";
 
   beforeEach(async () => {
     // const signers = await ethers.getSigners();
@@ -39,8 +39,6 @@ describe("GeneralElection", () => {
     expect(result).equals(0);
   });
 
-  
-
   it("should increase the votes of a party by 1 when someone votes", async () => {
     // act
     await generalElection.voteForParty(testParty);
@@ -52,17 +50,19 @@ describe("GeneralElection", () => {
     expect(partyResult).equals(1);
   });
 
-    it("should fail when voter has already voted", async () =>{
+  it("should fail when voter has already voted", async () => {
     // act
     // calling the method for the first time or first time voting
-    await generalElection.voteForParty("Party A");
-
+    await generalElection.voteForParty(testParty);
+    
     // assert
-   
-    assert.throws(async () => await generalElection.voteForParty("Party A"), "can vote only once")
-   
+    // we expect a VM exception to be thrown
+    // asserting the error is not null ...check the exact object type later 
+    try { 
+      await generalElection.voteForParty(testParty);
+    } catch (error) {
+      assert(error !== null);
+    }
+    // expect(await generalElection.voteForParty(testParty)).to.be.revertedWith("can only vote once");
   });
-  
-  
 });
-

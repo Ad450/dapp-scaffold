@@ -37,8 +37,8 @@
       ]
     },
     "/home/emmanuel/StudioProjects/dapp-scaffold/contracts/general_election.sol": {
-      "lastModificationDate": 1645730575660,
-      "contentHash": "8a9e8f0e8da8a64cfe9319c7e720ebea",
+      "lastModificationDate": 1645783408440,
+      "contentHash": "c13646a74fb6544792ed7a8c0660a242",
       "sourceName": "contracts/general_election.sol",
       "solcConfig": {
         "version": "0.8.4",

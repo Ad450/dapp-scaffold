@@ -19,7 +19,7 @@ contract GeneralElection is EC {
   @param [ballotBox] defined in the EC interface
    */
     constructor() {
-        parties = ["Party A", "Party B", "Party B"];
+        parties = ["Party A", "Party B", "Party C"];
         voter = Voter({hasVoted: false, vote: 0});
         ballotBox = BallotBox({totalVotes: 0});
     }

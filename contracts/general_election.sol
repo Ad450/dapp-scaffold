@@ -93,6 +93,9 @@ contract GeneralElection is EC {
         }
     }
 
+    /* 
+    @notice to be used in testing 
+    */
     function checkOvervoting() public view returns (uint){
         return voter.vote;
     }

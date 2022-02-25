@@ -66,7 +66,7 @@ export const Voting = () => {
       abi: abi,
       contractMethod: async (contract: Contract) => {
         const votes = await contract.getPartyVotes("Party A");
-        //alert(votes);
+        alert(votes);
       },
     });
   };

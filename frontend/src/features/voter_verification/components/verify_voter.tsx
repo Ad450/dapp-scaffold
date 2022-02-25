@@ -130,7 +130,6 @@ const VerifyVoter = () => {
         )}
 
         {loading ? <Text mt={1}>loading...</Text> : <Text></Text>}
-        <Button onClick={() => navigate("/voting")}>voting</Button>
       </Flex>
     </Flex>
   );

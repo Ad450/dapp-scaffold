@@ -1,4 +1,4 @@
-import { Flex, Text, Button, HStack, Heading } from "@chakra-ui/react";
+import { Flex, Text, Button, HStack } from "@chakra-ui/react";
 import { Contract } from "ethers";
 import { getFromChain, sendToChain } from "../../../core/web3/web3";
 import contract from "../../../contracts/contracts/general_election.sol/GeneralElection.json";
@@ -96,7 +96,7 @@ export const Voting = () => {
         >
           Check total votes
         </Button>
-        <Text mb={4}>Check results you parties below</Text>
+        <Text mb={4}>Check results of parties below</Text>
         <HStack mb={3}>
           <Button onClick={async (e) => await getVotesOfParty(e)} size="sm">
             Party A
